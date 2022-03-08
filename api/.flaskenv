@@ -1,0 +1,2 @@
+FLASK_APP=fileHandler.py
+FLASK_ENV=development

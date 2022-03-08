@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -7,12 +6,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <form encType="multipart/form-data" action="/" method="post">
+          <p>File: <input type="file" name="file" className="btn btn-outline-secondary upload"/></p>
+          <p><input type="submit" value="Upload" className="btn btn-outline-success"/></p>
+        </form>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
