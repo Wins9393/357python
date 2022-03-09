@@ -1,19 +1,44 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import MarsPhotos from './components/MarsPhotos';
+import HeaderPerso from './components/HeaderPerso';
+import PictureOfTheDay from './components/PictureOfTheDay';
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "antd";
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
+const { Header, Content } = Layout;
+
+const App = () => {
+
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    fetch('/time').then(res => res.json()).then(data => {
+      setCurrentTime(data.time);
+      console.log(data)
+    });
+  }, []);
+
+  //return <MarsPhotos></MarsPhotos>
+  return (
+    <Layout>
       <div className="App">
-        <div className="App-header">
-        <form encType="multipart/form-data" action="/" method="post">
-          <p>File: <input type="file" name="file" className="btn btn-outline-secondary upload"/></p>
-          <p><input type="submit" value="Upload" className="btn btn-outline-success"/></p>
-        </form>
-        </div>
+        <Header className="header">
+          <HeaderPerso />
+        </Header>
+        <Layout>
+          <Content className="content">
+            <Routes>
+              <Route path="/" element={<PictureOfTheDay />} />
+              <Route path="/marsPictures" element={<MarsPhotos />} />
+            </Routes>
+          </Content>
+        </Layout>
+        {currentTime}
       </div>
-    );
-  }
-}
+    </Layout>
+  )
+} 
+
 
 export default App;
