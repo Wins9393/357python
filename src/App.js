@@ -15,7 +15,6 @@ const App = () => {
   useEffect(() => {
     fetch('/time').then(res => res.json()).then(data => {
       setCurrentTime(data.time);
-      console.log(data)
     });
   }, []);
 

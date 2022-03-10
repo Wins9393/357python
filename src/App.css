@@ -81,15 +81,42 @@ p{
   align-items: flex-end;
 }
 
+.apodContainerPh{
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .apodImg{
   max-width: 48%;
+}
+
+.apodImgPh{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  width: 48%;
+  height: 48vh;
+  background-color: #666;
 }
 
 .descriptionContainer{
   margin: 16px 16px 0 16px;
 }
 
+.descriptionContainerPh{
+  width: 48%;
+}
+
 .apodDate{
   background-color: white;
   color: #222;
+}
+
+.dateInput{
+  width: 100%;
+  margin-bottom: 24px;
 }
