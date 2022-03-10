@@ -3,7 +3,9 @@ import "../App.css";
 
 const PictureOfTheDay = () => {
   const [apod, setApod] = useState()
-  const [date, setDate] = useState("2022-02-22")
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
+
+  console.log(date);
 
   useEffect(() => {
     fetch(`/pictureOfTheDay/${date}`)
@@ -21,11 +23,19 @@ const PictureOfTheDay = () => {
         <div className="apodContainer">
           <img className="apodImg" src={apod.hdurl} alt={apod.id} />
           <div className="descriptionContainer">
-            <p>Enter date: (YYYY-mm-dd") Between 1995-06-16 and Today</p>
-            <input className="dateInput" placeholder="YYYY-mm-dd" value={date} onInput={e => setDate(e.target.value)} />
-            <h3>{apod.title}</h3>
-            <p>{apod.explanation}</p>
-            <p className="apodDate">Picture of the: {apod.date}</p>
+            <div>
+              <p>Enter date: (YYYY-mm-dd") Between 1995-06-16 and Today</p>
+              <input className="dateInput" placeholder="YYYY-mm-dd" value={date} onInput={e => setDate(e.target.value)} />
+            </div>
+            <div>
+              <h3>{apod.title}</h3>
+              <p>{apod.explanation}</p>
+              <div className="apodDate">
+                <p>Picture of the: {apod.date}</p>
+                <p>{apod.copyright}</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

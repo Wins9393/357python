@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import InfosAsteroids from './components/InfosAsteroids';
+import AsteroidDetails from './components/AsteroidDetails';
 import MarsPhotos from './components/MarsPhotos';
 import HeaderPerso from './components/HeaderPerso';
 import PictureOfTheDay from './components/PictureOfTheDay';
@@ -30,6 +32,8 @@ const App = () => {
             <Routes>
               <Route path="/" element={<PictureOfTheDay />} />
               <Route path="/marsPictures" element={<MarsPhotos />} />
+              <Route path="/asteroidsInfos" element={<InfosAsteroids />} />
+              <Route path="/asteroid/:id" element={<AsteroidDetails />} />
             </Routes>
           </Content>
         </Layout>

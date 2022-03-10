@@ -9,6 +9,9 @@ const HeaderPerso = () => {
       <Menu.Item key="home">
         <Link to="/">Home</Link>
       </Menu.Item>
+      <Menu.Item key="asteroids">
+        <Link to="/asteroidsInfos">Asteroids</Link>
+      </Menu.Item>
       <Menu.Item key="marsPictures">
         <Link to="/marsPictures">Mars pictures</Link>
       </Menu.Item>
