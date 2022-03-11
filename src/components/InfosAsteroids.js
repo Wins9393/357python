@@ -9,7 +9,7 @@ const InfosAsteroids = () => {
       .then(res => res.json())
       .then(data => {
         setAsteroids(data.near_earth_objects);
-        
+
         console.log(data)
         console.log(data.near_earth_objects)
       });
@@ -22,7 +22,7 @@ const InfosAsteroids = () => {
           return (
             <div className="card mb-3 text-center" key={asteroid.id}>
               <div className="card-header">
-              <h5 className="card-title">{asteroid.name}</h5>
+              <h5 className="card-title">Asteroid: {asteroid.name}</h5>
               </div>
               <p className="card-text withBottomSeparator">Max estimated diameter (km): <span className='boldText'>{asteroid.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)}</span></p>
                 <p className="card-text withBottomSeparator">Min estimated diameter (km): <span className='boldText'>{asteroid.estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)}</span></p>
