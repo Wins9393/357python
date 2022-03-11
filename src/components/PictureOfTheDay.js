@@ -5,8 +5,6 @@ const PictureOfTheDay = () => {
   const [apod, setApod] = useState()
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
 
-  console.log(date);
-
   useEffect(() => {
     fetch(`/pictureOfTheDay/${date}`)
       .then(res => res.json())

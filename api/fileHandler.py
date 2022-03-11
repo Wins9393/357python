@@ -33,10 +33,25 @@ def getInfosAsteroids():
 
 @app.route('/infosAsteroids/<id>', methods=['GET'])
 def getAsteroidDetails(id):
-    response = requests.get("https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=EiYWprWCvQ27CZzbslZ89fqfiPxo7x3mFVHYYduz")
-    print(response.status_code)
+    response = requests.get("https://api.nasa.gov/neo/rest/v1/neo/"+ id +"?api_key=EiYWprWCvQ27CZzbslZ89fqfiPxo7x3mFVHYYduz")
 
-    return response.json()
+    asteroids = response.json()
+    closestDate = []
+    closestDistance = 9999999999999999999999
+
+    for dateInfo in asteroids["close_approach_data"]:
+        missDistance = float(dateInfo["miss_distance"]["kilometers"])
+        #print("ligne 44", missDistance)
+        #print("ligne 45",closestDistance)
+        if missDistance < closestDistance:
+            closestDistance = missDistance
+            closestDate = dateInfo
+
+    print("ligne 50",closestDistance)
+    print("ligne 51", closestDate)
+
+
+    return closestDate
 
 
 """ Test pour récupérer un calendrier HTML dans le front
